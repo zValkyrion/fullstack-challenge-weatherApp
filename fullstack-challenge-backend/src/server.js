@@ -1,7 +1,6 @@
-// src/server.js (Modificado)
 const express = require('express');
-const cors = require('cors'); // Asegúrate de tenerlo importado
-require('dotenv').config(); // Carga variables de entorno desde .env
+const cors = require('cors'); 
+require('dotenv').config(); 
 const connectDB = require('./config/database');
 
 // --- Conectar a la Base de Datos ---
@@ -15,7 +14,6 @@ const { errorHandler, notFound } = require('./middleware/error.middleware');
 // --- Crear instancia de Express ---
 const app = express();
 
-// --- Configuración de CORS Detallada ---  ¡AÑADIDO/MODIFICADO AQUÍ!
 // Define las opciones de CORS explícitamente
 const corsOptions = {
   // Permite peticiones SOLO desde tu frontend (cambia el puerto si usas otro)
@@ -49,7 +47,6 @@ app.use('/api/weather', weatherRoutes);
 
 
 // --- Manejo de Rutas No Encontradas (404) ---
-// Debe ir DESPUÉS de todas tus rutas API
 app.use(notFound);
 
 
