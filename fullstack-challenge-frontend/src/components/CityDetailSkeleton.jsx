@@ -1,4 +1,3 @@
-// src/components/CityDetailSkeleton.jsx
 import React from 'react';
 
 export const CityDetailSkeleton = () => {
