@@ -3,6 +3,7 @@
 Este es el backend para la aplicación Weather App, construido con Node.js y Express. Proporciona autenticación de usuarios (registro e inicio de sesión con JWT) y endpoints para obtener información meteorológica, utilizando las APIs de Reservamos (para geocodificación) y OpenWeatherMap (para datos del clima).
 
 ## ✨ Características
+
 * **Autenticación de Usuarios:** Registro (`/signup`) y Login (`/login`) usando JSON Web Tokens (JWT).
 * **Protección de Rutas:** Rutas de clima (`/api/weather/*`) requieren un token JWT válido en el header `Authorization`.
 * **API de Clima:**
@@ -31,6 +32,8 @@ Este es el backend para la aplicación Weather App, construido con Node.js y Exp
 * **CORS:** `cors`
 
 ## 📂 Estructura del Proyecto
+
+```
 .
 ├── src/
 │   ├── config/
@@ -50,93 +53,117 @@ Este es el backend para la aplicación Weather App, construido con Node.js y Exp
 │   │   └── weather.service.js  # Lógica para interactuar con APIs externas y caché
 │   ├── utils/                  # Helpers o utilidades generales (si aplica)
 │   └── server.js               # Punto de entrada, config Express, middlewares, rutas
-├── .env                        # Variables de entorno (¡NO SUBIR A GIT!)
+├── .env                        # Variables de entorno
 ├── .env.example                # Archivo de ejemplo para variables de entorno
 ├── .gitignore                  # Archivos ignorados por Git
 ├── package.json                # Dependencias y scripts
 ├── package-lock.json           # Lockfile de dependencias
 └── README.md                   # Este archivo
+```
 
-🚀 Getting Started
-Prerrequisitos
-Node.js (v14 o superior recomendado)
-npm o yarn
-Una instancia de MongoDB (local o en la nube como MongoDB Atlas, se pueden conectar a la mia, la inclui en las variables de entorno)
-Una API Key válida de OpenWeatherMap
+## 🚀 Getting Started
 
-Instalación
-Clona el repositorio:
-git clone [https://github.com/zValkyrion/fullstack-challenge-weatherApp.git](https://github.com/zValkyrion/fullstack-challenge-weatherApp.git)
-# Navega a la carpeta del backend dentro del proyecto clonado:
+### Prerrequisitos
+
+* Node.js (v14 o superior recomendado)
+* npm o yarn
+* Una instancia de MongoDB (local o en la nube como MongoDB Atlas, se pueden conectar a la mía, la incluí en las variables de entorno)
+* Una API Key válida de OpenWeatherMap
+
+### Instalación
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/zValkyrion/fullstack-challenge-weatherApp.git
+```
+
+2. Navega a la carpeta del backend dentro del proyecto clonado:
+```bash
 cd fullstack-challenge-weatherApp/fullstack-challenge-backend
+```
 
-
-Instala las dependencias:
+3. Instala las dependencias:
+```bash
 npm install
+```
 o si usas yarn:
+```bash
 yarn install
+```
 
+### Configuración
 
-Configuración
-Crea el archivo de variables de entorno:
-Copia el archivo de ejemplo .env.example (si existe) o crea un archivo nuevo llamado .env en la raíz de la carpeta fullstack-challenge-backend.
+1. Crea el archivo de variables de entorno:
+   Copia el archivo de ejemplo `.env.example` (si existe) o crea un archivo nuevo llamado `.env` en la raíz de la carpeta fullstack-challenge-backend.
 
+```bash
 cp .env.example .env  # O crea .env manualmente
-Configura las variables en .env:
-Abre el archivo .env y rellena los valores necesarios.
+```
 
-| Variable              | Descripción                                                      | Ejemplo                                                 | Requerida | Default         |
-| :-------------------- | :--------------------------------------------------------------- | :------------------------------------------------------ | :-------- | :-------------- |
-| MONGODB_URI         | Connection String de tu base de datos MongoDB.                   | mongodb+srv://user:pass@cluster...                    | Sí |                 |
-| JWT_SECRET          | Secreto para firmar y verificar los JWT. Usa algo seguro.        | un_secreto_muy_largo_y_aleatorio                      | Sí |                 |
-| OPENWEATHER_API_KEY | Tu API Key de OpenWeatherMap.                                    | abcdef1234567890abcdef1234567890                       | Sí |                 |
-| PORT                | Puerto en el que correrá el servidor.                            | 5001                                                  | No        | 5001          |
-| CACHE_TTL_SECONDS   | Tiempo de vida (en segundos) para la caché de clima.             | 900                                                   | No        | 900 (15 min)  |
-| NODE_ENV            | Entorno de ejecución ('development' o 'production').             | development                                           | No        | development   |
-| CORS_ORIGIN         | URL del frontend permitida por CORS (o * para cualquiera). | http://localhost:5173 o https://tu-frontend.com | No        | (Definido en server.js) |
+2. Configura las variables en `.env`:
+   Abre el archivo `.env` y rellena los valores necesarios.
 
+| Variable            | Descripción                                             | Ejemplo                                       | Requerida | Default         |
+| :------------------ | :------------------------------------------------------ | :-------------------------------------------- | :-------- | :-------------- |
+| MONGODB_URI         | Connection String de tu base de datos MongoDB.          | mongodb+srv://user:pass@cluster...            | Sí        |                 |
+| JWT_SECRET          | Secreto para firmar y verificar los JWT. Usa algo seguro.| un_secreto_muy_largo_y_aleatorio             | Sí        |                 |
+| OPENWEATHER_API_KEY | Tu API Key de OpenWeatherMap.                           | abcdef1234567890abcdef1234567890              | Sí        |                 |
+| PORT                | Puerto en el que correrá el servidor.                   | 5001                                          | No        | 5001            |
+| CACHE_TTL_SECONDS   | Tiempo de vida (en segundos) para la caché de clima.    | 900                                           | No        | 900 (15 min)    |
+| NODE_ENV            | Entorno de ejecución ('development' o 'production').    | development                                   | No        | development     |
+| CORS_ORIGIN         | URL del frontend permitida por CORS (o * para cualquiera).| http://localhost:5173 o https://tu-frontend.com | No        | (Definido en server.js) |
 
-▶️ Ejecutando la Aplicación
-Ejecuta la aplicacion con "npm run dev"
+## ▶️ Ejecutando la Aplicación
 
+### Modo Desarrollo:
+
+```bash
 npm run dev
-(Necesitas tener nodemon instalado globalmente o como dependencia de desarrollo: npm install -g nodemon o npm install --save-dev nodemon)
+```
+(Necesitas tener nodemon instalado globalmente o como dependencia de desarrollo: `npm install -g nodemon` o `npm install --save-dev nodemon`)
 
-Modo Producción / Normal:
+### Modo Producción / Normal:
+
+```bash
 npm start
+```
+
 El servidor se ejecutará en http://localhost:5001 (o el puerto definido en PORT).
 
-📡 API Endpoints
-Base URL: http://localhost:PORT/api (ej. http://localhost:5001/api)
+## 📡 API Endpoints
 
-Autenticación: Para las rutas protegidas, incluye el token JWT en el header Authorization de la petición:
+Base URL: `http://localhost:PORT/api` (ej. `http://localhost:5001/api`)
+
+**Autenticación:** Para las rutas protegidas, incluye el token JWT en el header `Authorization` de la petición:
+```
 Authorization: Bearer <tu_token_jwt>
+```
 
-GET /health
-Descripción: Verifica si el servidor está activo.
-Auth Requerida: No
-Respuesta (Éxito 200):
-JSON
-
+### GET /health
+- **Descripción:** Verifica si el servidor está activo.
+- **Auth Requerida:** No
+- **Respuesta (Éxito 200):**
+```json
 {
   "status": "UP",
   "message": "Server is running"
 }
-/auth
-POST /signup
+```
 
-Descripción: Registra un nuevo usuario.
-Auth Requerida: No
-Body:
-JSON
+### /auth
 
+#### POST /signup
+- **Descripción:** Registra un nuevo usuario.
+- **Auth Requerida:** No
+- **Body:**
+```json
 {
   "username": "testuser",
   "password": "password123"
 }
-Respuesta (Éxito 201):
-JSON
-
+```
+- **Respuesta (Éxito 201):**
+```json
 {
   "token": "eyJhbGciOiJI...",
   "user": {
@@ -145,21 +172,21 @@ JSON
   },
   "message": "User created successfully!"
 }
-Respuesta (Error): { "message": "..." } (Status 400, 409, 500)
-POST /login
+```
+- **Respuesta (Error):** `{ "message": "..." }` (Status 400, 409, 500)
 
-Descripción: Inicia sesión y obtiene un token JWT.
-Auth Requerida: No
-Body:
-JSON
-
+#### POST /login
+- **Descripción:** Inicia sesión y obtiene un token JWT.
+- **Auth Requerida:** No
+- **Body:**
+```json
 {
   "username": "testuser",
   "password": "password123"
 }
-Respuesta (Éxito 200):
-JSON
-
+```
+- **Respuesta (Éxito 200):**
+```json
 {
   "token": "eyJhbGciOiJI...",
   "user": {
@@ -168,17 +195,18 @@ JSON
   },
   "message": "Login successful!"
 }
-Respuesta (Error): { "message": "..." } (Status 400, 401, 500)
-/weather (Requiere Autenticación)
-GET /cities
+```
+- **Respuesta (Error):** `{ "message": "..." }` (Status 400, 401, 500)
 
-Descripción: Obtiene el clima actual para una o varias ciudades por nombre.
-Query Parameters:
-names (string, requerido): Nombres de ciudades separados por comas.
-Ejemplo: /api/weather/cities?names=Monterrey,Guadalajara,Berlin
-Respuesta (Éxito 200): Array de objetos, uno por ciudad.
-JSON
+### /weather (Requiere Autenticación)
 
+#### GET /cities
+- **Descripción:** Obtiene el clima actual para una o varias ciudades por nombre.
+- **Query Parameters:**
+  - `names` (string, requerido): Nombres de ciudades separados por comas.
+- **Ejemplo:** `/api/weather/cities?names=Monterrey,Guadalajara,Berlin`
+- **Respuesta (Éxito 200):** Array de objetos, uno por ciudad.
+```json
 [
   {
     "cityName": "Monterrey",
@@ -197,31 +225,31 @@ JSON
     "error": "City not found or failed to fetch weather" // Puede incluir error
   }
 ]
-GET /forecast
+```
 
-Descripción: Obtiene el pronóstico diario simplificado para los próximos días basado en coordenadas.
-Query Parameters:
-lat (number, requerido): Latitud.
-lon (number, requerido): Longitud.
-Ejemplo: /api/weather/forecast?lat=25.6751&lon=-100.3185
-Respuesta (Éxito 200): Array con pronóstico diario.
-JSON
-
+#### GET /forecast
+- **Descripción:** Obtiene el pronóstico diario simplificado para los próximos días basado en coordenadas.
+- **Query Parameters:**
+  - `lat` (number, requerido): Latitud.
+  - `lon` (number, requerido): Longitud.
+- **Ejemplo:** `/api/weather/forecast?lat=25.6751&lon=-100.3185`
+- **Respuesta (Éxito 200):** Array con pronóstico diario.
+```json
 [
   { "date": "2025-04-05", "temp_min": 15.2, "temp_max": 28.5, "condition": "Clear", "icon": "01d" },
   { "date": "2025-04-06", "temp_min": 16.0, "temp_max": 29.1, "condition": "Clouds", "icon": "03d" },
   // ... hasta 5-7 días
 ]
-GET /details-by-coords
+```
 
-Descripción: Obtiene detalles de ubicación y clima actual por coordenadas.
-Query Parameters:
-lat (number, requerido): Latitud.
-lon (number, requerido): Longitud.
-Ejemplo: /api/weather/details-by-coords?lat=25.6751&lon=-100.3185
-Respuesta (Éxito 200): Objeto con detalles.
-JSON
-
+#### GET /details-by-coords
+- **Descripción:** Obtiene detalles de ubicación y clima actual por coordenadas.
+- **Query Parameters:**
+  - `lat` (number, requerido): Latitud.
+  - `lon` (number, requerido): Longitud.
+- **Ejemplo:** `/api/weather/details-by-coords?lat=25.6751&lon=-100.3185`
+- **Respuesta (Éxito 200):** Objeto con detalles.
+```json
 {
   "location": {
      "name": "Monterrey",
@@ -234,18 +262,22 @@ JSON
      "condition": {
        "text": "Clear",
        "description": "clear sky",
-       "icon": "[https://openweathermap.org/img/wn/01d@2x.png](https://openweathermap.org/img/wn/01d@2x.png)",
+       "icon": "https://openweathermap.org/img/wn/01d@2x.png",
        "code": 800
      },
      "wind_mps": 3.5
    }
  }
-🤖 Cómo Usé la IA
+```
+
+## 🤖 Cómo Usé la IA
+
 Este proyecto no se construyó en solitario. Conté con la asistencia de herramientas de Inteligencia Artificial (IA) como un valioso compañero de código y consultor técnico. La IA fue un recurso clave en diversas etapas del desarrollo:
 
-Depuración Acelerada: Para resolver rápidamente errores de sintaxis o pequeños despistes lógicos.
-Código de Calidad: Consulté a la IA para aplicar buenas prácticas de desarrollo en Node.js y Express, incluyendo estructuración modular, manejo seguro de contraseñas (bcrypt) e implementación de JWT.
-Chispa Creativa y Diseño: Funcionó como un 'brainstorming partner' para definir enfoques en la implementación del caché, la estructura de las respuestas de la API y la organización general.
-Refinamiento y Optimización: Sugerencias puntuales para mejorar la legibilidad, eficiencia y mantenibilidad del código.
-Documentación Clara: Colaboró en la redacción y estructuración de partes de este mismo README.md para que fuera claro y completo.
+* **Depuración Acelerada:** Para resolver rápidamente errores de sintaxis o pequeños despistes lógicos.
+* **Código de Calidad:** Consulté a la IA para aplicar buenas prácticas de desarrollo en Node.js y Express, incluyendo estructuración modular, manejo seguro de contraseñas (bcrypt) e implementación de JWT.
+* **Chispa Creativa y Diseño:** Funcionó como un 'brainstorming partner' para definir enfoques en la implementación del caché, la estructura de las respuestas de la API y la organización general.
+* **Refinamiento y Optimización:** Sugerencias puntuales para mejorar la legibilidad, eficiencia y mantenibilidad del código.
+* **Documentación Clara:** Colaboró en la redacción y estructuración de partes de este mismo README.md para que fuera claro y completo.
+
 En esencia, la IA fue una herramienta para potenciar la productividad, asegurar la calidad y validar decisiones de diseño, permitiéndome enfocar más energía en la lógica central de la aplicación.
