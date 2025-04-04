@@ -1,13 +1,10 @@
-// src/components/ForecastItem.jsx
 import React from 'react';
 import { WeatherIcon } from './WeatherIcon';
-import { format } from 'date-fns'; // Para formatear fechas (instala date-fns: npm install date-fns)
-import { es } from 'date-fns/locale'; // Para formato en español
+import { format } from 'date-fns'; 
+import { es } from 'date-fns/locale';
 
 export const ForecastItem = ({ date, temp_min, temp_max, condition, icon }) => {
     // Formatea la fecha. Asegúrate de que la fecha es un objeto Date o un string ISO válido.
-    // OpenWeather usualmente devuelve strings 'YYYY-MM-DD HH:MM:SS' o timestamps.
-    // El backend ya lo procesó a 'YYYY-MM-DD'. Añadimos la hora para que Date lo parse bien.
     const dateObject = new Date(`${date}T12:00:00`); // Añade hora para evitar problemas de zona horaria al formatear solo día/mes
 
     const formattedDate = isValid(dateObject)
