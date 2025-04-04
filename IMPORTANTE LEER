@@ -1,10 +1,5 @@
 # 🌦️ Fullstack Challenge - Weather App
 
-[![Node.js](https://img.shields.io/badge/Node.js-14%2B-brightgreen)](https://nodejs.org/)
-[![React](https://img.shields.io/badge/React-18-blue)](https://reactjs.org/)
-[![Express](https://img.shields.io/badge/Express-4-lightgrey)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Ready-green)](https://mongodb.com/)
-
 ¡Bienvenido al Fullstack Weather App Challenge! Este repositorio contiene tanto el **Frontend (construido con React)** como el **Backend (API construida con Node.js/Express)** para una aplicación de clima completa.
 
 ## 📋 Descripción General
