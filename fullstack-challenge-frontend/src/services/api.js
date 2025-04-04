@@ -1,4 +1,3 @@
-// src/services/api.js
 import axios from 'axios';
 
 // 1. Lee la URL base de la API desde las variables de entorno de Vite
@@ -91,9 +90,7 @@ export const getForecast = async (lat, lon) => {
   }
 };
 
-// --- FUNCIÓN ACTUALIZADA/AÑADIDA ---
 // Función para obtener detalles COMPLETOS (ubicación + clima actual) por coordenadas
-// Llama a la NUEVA ruta que creaste en el backend
 export const getCityDetailsByCoords = async (latitude, longitude) => {
   // Validación básica
   if (isNaN(latitude) || isNaN(longitude)) {
@@ -102,13 +99,9 @@ export const getCityDetailsByCoords = async (latitude, longitude) => {
   }
 
   try {
-    // --- ¡Asegúrate que esta RUTA coincida con la que definiste en tu servidor backend! ---
     const endpointPath = `/weather/details-by-coords?lat=${latitude}&lon=${longitude}`;
-    // ------------------------------------------------------------------------------------
-
     console.log(`[API Service Frontend] Calling GET ${endpointPath}`);
     const response = await apiClient.get(endpointPath);
-
     // Se espera que la respuesta ya venga formateada desde el backend como { location: {...}, current: {...} }
     console.log("[API Service Frontend] Response received from details endpoint:", response.data);
     return response.data;
@@ -119,8 +112,5 @@ export const getCityDetailsByCoords = async (latitude, longitude) => {
     throw error.response?.data || new Error('No se pudieron obtener los detalles completos de la ciudad');
   }
 };
-// --- FIN FUNCIÓN ACTUALIZADA/AÑADIDA ---
 
-
-// Exportación por defecto (opcional)
 export default apiClient;
