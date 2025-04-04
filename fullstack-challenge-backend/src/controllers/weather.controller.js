@@ -1,6 +1,4 @@
-// src/controllers/weather.controller.js
 
-// Importa tu módulo de servicio (asegúrate que la ruta sea correcta)
 const weatherService = require('../services/weather.service');
 
 // --- Obtener Clima Actual para Múltiples Ciudades ---
@@ -53,8 +51,6 @@ exports.getWeatherForCities = async (req, res, next) => {
      console.error("Error in getWeatherForCities controller:", error);
      // Pasamos el error al manejador global
      next(error);
-     // Opcional: Enviar respuesta directa si no se confía en 'next(error)'
-     // res.status(500).json({ message: "Server error fetching weather for cities" });
   }
 };
 
@@ -106,24 +102,17 @@ exports.getDetailsByCoords = async (req, res, next) => {
   if (isNaN(latitude) || isNaN(longitude)) {
     // Si son inválidos, no continuamos. Enviamos 400 Bad Request.
     return res.status(400).json({ message: 'Invalid or missing coordinates (lat, lon) in query parameters.' });
-    // Alternativa si usas next(error) para todo:
     // res.status(400);
     // return next(new Error('Invalid or missing coordinates...'));
   }
 
   try {
-    // Llama a la función del servicio que combina datos (la que creamos en weather.service.js)
-    // Asegúrate que 'weatherService' esté importado correctamente arriba
-    // y que 'getLocationAndCurrentWeather' exista en ese servicio y esté exportada.
     const details = await weatherService.getLocationAndCurrentWeather(latitude, longitude);
 
     // Si el servicio no pudo obtener datos (ej: error interno al llamar a OpenWeather)
     if (!details) {
        // Usamos 404 Not Found porque no se encontraron datos para esas coords.
        return res.status(404).json({ message: 'Could not retrieve details for the specified coordinates.' });
-       // Alternativa con next(error):
-       // res.status(404);
-       // return next(new Error('Could not retrieve details...'));
     }
 
     // ¡Éxito! Envía la respuesta JSON combinada al frontend
