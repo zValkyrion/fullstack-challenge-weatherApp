@@ -1,4 +1,4 @@
-El archivo .env con las variables de entorno los envie por correo
+El archivo .env con las variables de entorno tanto del backend como el frontend los envie por correo
 
 Instalar todas las dependencias de ambos proyectos es con "npm install"
 
