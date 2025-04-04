@@ -12,8 +12,6 @@ router.get('/cities', protect, weatherController.getWeatherForCities);
 // GET /api/weather/forecast?lat=...&lon=...
 router.get('/forecast', protect, weatherController.getWeatherForecast);
 
-// --- AÑADE ESTA LÍNEA PARA LA NUEVA RUTA ---
-// GET /api/weather/details-by-coords?lat=...&lon=...
 // Usará el mismo middleware 'protect' y un nuevo método del controlador
 router.get('/details-by-coords', protect, weatherController.getDetailsByCoords);
 // -----------------------------------------
