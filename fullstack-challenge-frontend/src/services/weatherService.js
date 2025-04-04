@@ -1,4 +1,4 @@
-import api from './api'; // Importa la instancia configurada de Axios
+import api from './api'; 
 
 // Obtiene el clima actual de las ciudades populares (definidas en el backend)
 export const getPopularCitiesWeather = async () => {
@@ -14,7 +14,6 @@ export const getPopularCitiesWeather = async () => {
 // Obtiene el pronóstico para una ciudad específica
 export const getCityForecast = async (cityName) => {
    try {
-     // Asegúrate que el nombre de la ciudad esté codificado para URL
      const encodedCityName = encodeURIComponent(cityName);
      const response = await api.get(`/weather/forecast/${encodedCityName}`);
      return response.data;
