@@ -1,6 +1,5 @@
-// src/components/Button.jsx
 import React from 'react';
-import { Spinner } from './Spinner'; // Asumimos que crearemos Spinner.jsx
+import { Spinner } from './Spinner'; 
 
 export const Button = ({
   children,
@@ -10,9 +9,9 @@ export const Button = ({
   size = 'md', // sm, md, lg
   disabled = false,
   isLoading = false,
-  iconLeft, // Componente de icono opcional a la izquierda
-  iconRight, // Componente de icono opcional a la derecha
-  className = '', // Clases adicionales
+  iconLeft, 
+  iconRight, 
+  className = '', 
   ...props
 }) => {
   const baseStyle = `
