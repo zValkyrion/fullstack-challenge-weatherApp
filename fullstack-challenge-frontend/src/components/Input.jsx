@@ -33,7 +33,6 @@ export const Input = React.forwardRef(({
     : 'border-gray-300 focus:border-primary focus:ring-primary';
 
   // Combinamos los estilos
-  // Nota: El 'errorStyle' se aplica después, por lo que sus clases de borde/foco tienen prioridad si 'error' es true.
   const combinedClassName = `${baseStyle} ${error ? errorStyle : ''} ${className}`.trim().replace(/\s+/g, ' '); // Limpia espacios extra
 
   return (
