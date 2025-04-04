@@ -1,0 +1,5 @@
+El archivo .env con las variables de entorno los envie por correo
+
+Instalar todas las dependencias de ambos proyectos es con "npm install"
+
+Para ejecutar ambos proyectos es con "npm run dev"
