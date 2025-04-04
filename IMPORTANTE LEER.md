@@ -66,7 +66,7 @@ Ambos proyectos requieren archivos `.env` para variables sensibles:
 2. Configura principalmente la URL de la API backend (`VITE_API_URL`)
 3. Revisa el archivo `.env.example` incluido como referencia
 
-> ⚠️ **IMPORTANTE:** Los archivos `.env` contienen información sensible. **Nunca los subas a Git ni los compartas directamente**. Asegúrate de que estén incluidos en `.gitignore`.
+> ⚠️ **IMPORTANTE:** Los archivos `.env` los he enviado por correo en caso de ser necesarios contactarse conmigo - carlos.acosta12121998@gmail.com.
 
 ### 🖥️ Ejecución
 
