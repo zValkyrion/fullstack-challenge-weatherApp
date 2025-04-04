@@ -9,14 +9,14 @@ import {
   UserIcon, 
   LockClosedIcon, 
   EyeIcon, 
-  EyeSlashIcon, // Asumiendo v2 de Heroicons
+  EyeSlashIcon,
   ShieldCheckIcon, 
   CheckIcon,
-  XMarkIcon // Asumiendo v2 de Heroicons para el error de coincidencia
+  XMarkIcon 
 } from '@heroicons/react/24/outline';
 
 
-// Validación de contraseña (sin cambios)
+// Validación de contraseña 
 const validatePassword = (password) => {
   const errors = {
     minLength: password.length < 8,
@@ -29,7 +29,7 @@ const validatePassword = (password) => {
 };
 
 export const SignupPage = () => {
-  // Estados (sin cambios)
+  // Estados 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -44,7 +44,7 @@ export const SignupPage = () => {
   const { signup, isLoading, error, clearError, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  // useEffects (sin cambios)
+  // useEffects 
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/');
@@ -71,7 +71,7 @@ export const SignupPage = () => {
     }
   }, [password, passwordTouched]);
 
-  // Handlers (sin cambios)
+  // Handlers 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
     if (!passwordTouched) {
@@ -104,7 +104,7 @@ export const SignupPage = () => {
     }
   };
 
-  // Requisitos de contraseña (sin cambios)
+  // Requisitos de contraseña 
   const passwordRequirements = [
     { key: 'minLength', label: 'Mínimo 8 caracteres' },
     { key: 'uppercase', label: 'Al menos una letra mayúscula (A-Z)' },
