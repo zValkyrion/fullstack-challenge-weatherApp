@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -9,7 +7,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
 import { CityDetailPage } from './pages/CityDetailPage';
-import NotFoundPage from './pages/NotFoundPage'; // <-- Ya está importado, ¡bien!
+import NotFoundPage from './pages/NotFoundPage'; 
 
 
 // Importa componentes de layout y protección
@@ -22,8 +20,6 @@ function App() {
   const location = useLocation();
 
   return (
-    // Contenedor principal de la aplicación con Flexbox para el layout (header/main/footer)
-    // y estilos base de fondo/texto aplicados en index.css
     <div className="App flex flex-col min-h-screen bg-slate-100 text-slate-800">
       {/* Navbar persistente en la parte superior */}
       <Navbar />
