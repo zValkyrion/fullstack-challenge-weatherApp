@@ -5,13 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 
 // Importar funciones del servicio API
-import { getCityDetailsByCoords, getForecast } from "../services/api"; // Ajusta la ruta si es necesario
+import { getCityDetailsByCoords, getForecast } from "../services/api";
 
 // Importar Componentes UI
-import { Alert } from "../components/Alert"; // Ajusta la ruta si es necesario
-import { ForecastItem } from "../components/ForecastItem"; // Ajusta la ruta si es necesario
-import { ForecastSkeleton } from "../components/ForecastSkeleton"; // Ajusta la ruta si es necesario
-import { CityDetailSkeleton } from "../components/CityDetailSkeleton"; // Ajusta la ruta y asegúrate de crear este componente
+import { Alert } from "../components/Alert"; 
+import { ForecastItem } from "../components/ForecastItem"; 
+import { ForecastSkeleton } from "../components/ForecastSkeleton"; 
+import { CityDetailSkeleton } from "../components/CityDetailSkeleton"; 
 
 // Importar Iconos
 import {
@@ -24,7 +24,7 @@ import {
   FiCloudRain,
   FiCloud,
   FiHelpCircle,
-} from "react-icons/fi"; // Añadimos FiCloud y FiHelpCircle
+} from "react-icons/fi"; 
 
 
 const WeatherIcon = ({ conditionText, className = "w-6 h-6", ...props }) => {
@@ -38,13 +38,12 @@ const WeatherIcon = ({ conditionText, className = "w-6 h-6", ...props }) => {
   if (text.includes("sun") || text.includes("clear"))
     return <FiSun className={className} {...props} />;
   if (text.includes("cloud") || text.includes("overcast"))
-    return <FiCloud className={className} {...props} />; // Icono de nube
+    return <FiCloud className={className} {...props} />; 
   if (text.includes("snow"))
-    return <FiCloudRain className={className} {...props} />; // TODO: Usar icono de nieve si tienes uno
+    return <FiCloudRain className={className} {...props} />;
   if (text.includes("mist") || text.includes("fog") || text.includes("haze"))
-    return <FiCloud className={className} {...props} />; // Podría ser otro icono
-  // Añade más condiciones (thunder, etc.)
-  return <FiHelpCircle className={className} {...props} />; // Icono por defecto o desconocido
+    return <FiCloud className={className} {...props} />; 
+  return <FiHelpCircle className={className} {...props} />; 
 };
 
 const getGradientClasses = (temp) => {
@@ -62,7 +61,7 @@ const getGradientClasses = (temp) => {
     // Fresco
     return 'from-cyan-300 via-cyan-200 to-cyan-100';
   } else if (temp <= 20) {
-    // Templado (azul claro en lugar de verde)
+    // Templado (azul claro)
     return 'from-blue-300 via-sky-200 to-blue-100';
   } else if (temp <= 28) {
     // Cálido
@@ -320,9 +319,8 @@ export const CityDetailPage = () => {
                     >
                       <ForecastItem
                         {...dayForecast} // Pasa el resto de props (date, temp_min, temp_max, etc.)
-                        // *** Props añadidas explícitamente ***
                         conditionText={conditionText} // Pasa la descripción de la condición
-                        windSpeed={windSpeed} // Pasa la velocidad del viento (asegúrate que ForecastItem la use)
+                        windSpeed={windSpeed} // Pasa la velocidad del viento (ForecastItem)
                         // Pasa el componente de icono o la URL si existe
                         iconComponent={
                           <WeatherIcon
@@ -330,8 +328,6 @@ export const CityDetailPage = () => {
                             className="w-10 h-10 text-gray-700"
                           />
                         }
-                        // Si tu API ya da una URL de icono para el pronóstico:
-                        // iconUrl={dayForecast.condition?.icon?.replace(/^\/\//, 'https://')}
                       />
                     </motion.div>
                   );
