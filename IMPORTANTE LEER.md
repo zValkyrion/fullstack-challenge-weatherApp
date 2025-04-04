@@ -1,6 +1,6 @@
 # 🌦️ Fullstack Challenge - Weather App
 
-¡Bienvenido al Fullstack Weather App Challenge! Este repositorio contiene tanto el **Frontend (construido con React)** como el **Backend (API construida con Node.js/Express)** para una aplicación de clima completa.
+Este repositorio contiene tanto el **Frontend (construido con React)** como el **Backend (API construida con Node.js/Express)** para una aplicación de clima completa.
 
 ## 📋 Descripción General
 
@@ -8,7 +8,7 @@ Este proyecto demuestra habilidades de desarrollo full-stack con:
 - **Frontend**: Aplicación moderna en React con diseño responsive
 - **Backend**: API RESTful construida con Node.js y Express
 - **Base de datos**: Integración con MongoDB para persistencia de datos
-- **Datos meteorológicos**: Integración con la API de OpenWeatherMap
+- **Datos meteorológicos**: Integración con la API de Reservamos y OpenWeatherMap
 
 ## 📂 Estructura del Repositorio
 
