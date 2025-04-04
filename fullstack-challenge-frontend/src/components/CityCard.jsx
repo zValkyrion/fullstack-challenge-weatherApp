@@ -1,9 +1,8 @@
-// src/components/CityCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { WeatherIcon } from './WeatherIcon'; // Asegúrate que este componente acepte 'colorClassName'
+import { WeatherIcon } from './WeatherIcon'; 
 import { FiMapPin } from 'react-icons/fi';
 
 // --- Helper Function para Determinar Clases (Gradiente, Texto, Iconos) ---
