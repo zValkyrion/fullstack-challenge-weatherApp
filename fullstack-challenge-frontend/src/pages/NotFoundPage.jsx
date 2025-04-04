@@ -1,9 +1,9 @@
 // src/pages/NotFoundPage.jsx
 
 import React from 'react';
-import { Link } from 'react-router-dom'; // Para el enlace
-import { FiCloudOff } from 'react-icons/fi'; // Un icono temático de react-icons
-import { Button } from '../components/Button'; // Tu componente de botón reutilizable
+import { Link } from 'react-router-dom'; 
+import { FiCloudOff } from 'react-icons/fi'; 
+import { Button } from '../components/Button'; 
 
 function NotFoundPage() {
   return (
