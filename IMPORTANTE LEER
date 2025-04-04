@@ -1,7 +1,9 @@
-El archivo .env con las variables de entorno tanto del backend como el frontend los envie por correo
+# El archivo .env con las variables de entorno tanto del backend como el frontend los envie por correo
 
-Instalar todas las dependencias de ambos proyectos es con "npm install"
+# Instalar todas las dependencias de ambos proyectos es con "npm install"
 
-Para ejecutar ambos proyectos es con "npm run dev"
+# Para ejecutar ambos proyectos es con "npm run dev"
 
-Ubicar el archivo .env (backend) y .env (frotend) en la carpeta raiz de su respectiva carpeta
+# Ubicar el archivo .env (backend) y .env (frotend) en la carpeta raiz de su respectiva carpeta
+
+#CADA CARPETA CONTIENE SU PROPIO README DONDE SE EXPLICA MAS A DETALLE TODO SOBRE CADA PROYECTO
