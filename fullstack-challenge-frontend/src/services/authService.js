@@ -29,5 +29,3 @@ export const signupUser = async (credentials) => {
   }
 };
 
-// Podrías añadir aquí una función para verificar el token si la implementas en el backend
-// export const verifyToken = async () => { ... }
