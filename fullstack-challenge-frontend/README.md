@@ -44,12 +44,12 @@ La aplicación sigue una arquitectura basada en componentes de React.
 
 ### Flujo de Autenticación
 
-1.  El estado de autenticación (`isAuthenticated`, `user`, `isLoading`, `error`) se gestiona globalmente mediante React Context (`AuthContext` en `src/contexts/AuthContext.jsx`).
-2.  Las páginas `LoginPage` y `SignupPage` utilizan el hook `useAuth` para llamar a las funciones `login` y `signup` del contexto.
-3.  Estas funciones del contexto realizan llamadas a la API del backend (definida por `VITE_API_BASE_URL`).
-4.  El componente `ProtectedRoute` envuelve las rutas que requieren autenticación, verifica `isAuthenticated` del contexto y redirige a `/login` si el usuario no está logueado.
-5.  La `Navbar` muestra condicionalmente el saludo y botón de logout o los botones de login/signup basándose en `isAuthenticated`.
-6.  El logout llama a la función `logout` del contexto, que probablemente elimina el token/sesión y actualiza el estado.
+1. El estado de autenticación (`isAuthenticated`, `user`, `isLoading`, `error`) se gestiona globalmente mediante React Context (`AuthContext` en `src/contexts/AuthContext.jsx`).
+2. Las páginas `LoginPage` y `SignupPage` utilizan el hook `useAuth` para llamar a las funciones `login` y `signup` del contexto.
+3. Estas funciones del contexto realizan llamadas a la API del backend (definida por `VITE_API_BASE_URL`).
+4. El componente `ProtectedRoute` envuelve las rutas que requieren autenticación, verifica `isAuthenticated` del contexto y redirige a `/login` si el usuario no está logueado.
+5. La `Navbar` muestra condicionalmente el saludo y botón de logout o los botones de login/signup basándose en `isAuthenticated`.
+6. El logout llama a la función `logout` del contexto, que probablemente elimina el token/sesión y actualiza el estado.
 
 ### Routing
 
@@ -78,6 +78,7 @@ La aplicación sigue una arquitectura basada en componentes de React.
 
 ## Estructura del Proyecto 📁
 
+```
 weatherapp-frontend/
 ├── public/             # Archivos estáticos (favicon, etc.)
 ├── src/
@@ -97,9 +98,7 @@ weatherapp-frontend/
 ├── package.json        # Dependencias y scripts del proyecto
 ├── README.md           # Este archivo
 └── vite.config.js      # Configuración de Vite (si se personalizó)
-
-
-*(Ajusta esta estructura si la tuya difiere)*
+```
 
 ## Componentes Principales 🧬
 
@@ -157,39 +156,52 @@ En esencia, la IA fue una herramienta para **acelerar el desarrollo, validar ide
 
 ## Instalación ⚙️
 
-1.  Clona el repositorio:
-    git clone [URL_DEL_REPO_FRONTEND_AQUÍ]
-    cd weatherapp-frontend
-2.  Instala dependencias:
-    npm install
-    o: yarn install
+1. Clona el repositorio:
+```bash
+git clone [URL_DEL_REPO_FRONTEND_AQUÍ]
+cd weatherapp-frontend
+```
+
+2. Instala dependencias:
+```bash
+npm install
+```
+o:
+```bash
+yarn install
+```
 
 ## Configuración (.env) ⚙️
 
-1.  Crea un archivo `.env` en la raíz del proyecto.
-2.  Añade las siguientes variables (¡con el prefijo `VITE_`!):
+1. Crea un archivo `.env` en la raíz del proyecto.
+2. Añade las siguientes variables (¡con el prefijo `VITE_`!):
 
+```bash
+# .env
 
-    # .env
+# Clave API para el servicio de clima
+# Obtenla de [OpenWeatherMap]
+VITE_WEATHER_API_KEY=TU_API_KEY_DE_CLIMA_AQUI
 
-    # Clave API para el servicio de clima
-    # Obtenla de [OpenWeatherMap]
-    VITE_WEATHER_API_KEY=TU_API_KEY_DE_CLIMA_AQUI
+# URL base de tu API backend para autenticación
+VITE_API_BASE_URL=URL_DE_TU_BACKEND_AQUI
+```
 
-    # URL base de tu API backend para autenticación
-    VITE_API_BASE_URL=URL_DE_TU_BACKEND_AQUI
+* Reemplaza los valores placeholder con tus claves y URLs reales.
 
-    * Reemplaza los valores placeholder con tus claves y URLs reales.
-
-## Scripts Disponibles scripts
+## Scripts Disponibles
 
 En el `package.json`, encontrarás (al menos) los siguientes scripts:
 
-* `npm run dev` o `yarn dev`
+* `npm run dev` o `yarn dev`  
     Inicia el servidor de desarrollo con HMR en `http://localhost:5173`.
 
-* `npm run build` o `yarn build`
+* `npm run build` o `yarn build`  
     Genera la build de producción optimizada en la carpeta `dist/`.
 
-* `npm run preview` o `yarn preview`
+* `npm run preview` o `yarn preview`  
     Sirve localmente la build de producción desde la carpeta `dist/` para previsualizarla.
+
+## Despliegue (Deployment)
+
+*(Añade instrucciones específicas sobre cómo desplegar este frontend si tienes alguna preferencia o recomendación particular)*
