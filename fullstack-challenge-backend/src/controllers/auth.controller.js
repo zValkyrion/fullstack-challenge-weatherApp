@@ -54,7 +54,6 @@ exports.signup = async (req, res, next) => {
     });
 
   } catch (error) {
-    // Pasar error al middleware de manejo de errores (que crearemos luego)
     // o enviar una respuesta genérica por ahora
      console.error("Signup Error:", error);
      res.status(500).json({ message: 'Server error during signup' });
