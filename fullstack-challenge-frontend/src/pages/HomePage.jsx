@@ -1,15 +1,14 @@
-// src/pages/HomePage.jsx
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getCitiesWeather } from '../services/api'; // Tu función del servicio API
-import { useAuth } from '../contexts/AuthContext'; // Necesario para el token
+import { getCitiesWeather } from '../services/api'; 
+import { useAuth } from '../contexts/AuthContext'; 
 import { CityCard } from '../components/CityCard';
 import { CityCardSkeleton } from '../components/CityCardSkeleton';
 import { Alert } from '../components/Alert';
-import { Input } from '../components/Input'; // Importa Input
-import { Button } from '../components/Button'; // Importa Button
-import { FiSearch, FiXCircle } from 'react-icons/fi'; // Iconos
+import { Input } from '../components/Input'; 
+import { Button } from '../components/Button'; 
+import { FiSearch, FiXCircle } from 'react-icons/fi'; 
 
 // --- Lista Expandida de Ciudades Populares ---
 const popularCities = [
@@ -41,13 +40,11 @@ export const HomePage = () => {
         error: errorPopular,     // Objeto de error para populares
         refetch: refetchPopular, // Función para re-intentar carga de populares
     } = useQuery({
-        // La query key ahora incluye 'popular' para diferenciarla si hubiera otras listas
+        // La query key incluye 'popular' para diferenciarla si hubiera otras listas
         queryKey: ['weather', 'cities', 'popular', popularCities.join(',')],
         queryFn: () => getCitiesWeather(popularCities), // Llama a la API con la lista expandida
         // Habilita la query solo si hay token y si no hay un resultado de búsqueda activo
         enabled: !!token && !searchedCityData,
-        // Opcional: Mantener datos previos mientras recarga en segundo plano
-        // keepPreviousData: true,
     });
 
     // --- Función para manejar la búsqueda ---
