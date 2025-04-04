@@ -4,12 +4,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f4f8;
-    /* Ya NO están las líneas display:flex, justify-content, align-items */
-    min-height: 100vh; /* Puedes mantener esto si quieres */
+    min-height: 100vh; 
     margin: 0;
 }
   
-  /* --- Header (si decides mantenerlo visible en la página de login) --- */
+  /* --- Header (visible en la página de login) --- */
   .app-header {
     position: absolute;
     top: 0;
@@ -27,7 +26,7 @@ body {
   .app-header .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #0277bd; /* Un azul como ejemplo */
+    color: #0277bd; 
   }
   
   .app-header .header-actions a,
