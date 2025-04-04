@@ -1,6 +1,4 @@
-// src/contexts/AuthContext.jsx
 import React, { createContext, useState, useEffect, useContext } from 'react';
-// Asegúrate que la ruta a tu archivo api.js sea correcta
 import { loginUser, signupUser } from '../services/api';
 
 // 1. Crear el Contexto de Autenticación
@@ -52,10 +50,7 @@ export const AuthProvider = ({ children }) => {
           }
         } else {
            // Si hay token pero no datos de usuario, podría ser una sesión antigua
-           // o incompleta. Idealmente, verificar el token con /api/auth/me aquí.
           console.warn("AuthContext: Auth token exists but no user data found in state or localStorage. Session might be incomplete.");
-          // Considera llamar a una función para obtener el perfil del usuario aquí
-          // fetchUserProfile(); // Ejemplo
         }
       } else {
         // Si ya tenemos usuario en el estado, nos aseguramos que esté en localStorage
@@ -69,8 +64,6 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       setUser(null);
     }
-  // Solo necesitamos re-ejecutar si el token cambia fundamentalmente.
-  // 'user' se maneja dentro de la lógica condicional.
   }, [token]);
 
 
@@ -84,7 +77,7 @@ export const AuthProvider = ({ children }) => {
       setToken(data.token); // Actualiza el token (dispara useEffect)
       setUser(data.user); // Actualiza la info del usuario
       setIsLoading(false);
-      return true; // Indica éxito
+      return true; 
 
     } catch (err) {
       console.error("AuthContext Login error:", err); // Log detallado del error
@@ -118,9 +111,6 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
     setError(null); // Limpia errores previos
     try {
-      // Asumiendo que tu API signup devuelve token y user si es exitoso
-      // para hacer login automático. Si solo devuelve mensaje de éxito,
-      // necesitarías llamar a login() después o ajustar la lógica.
       const data = await signupUser({ username, password }); // Llama a la API
       setToken(data.token); // Actualiza el token (dispara useEffect)
       setUser(data.user); // Actualiza la info del usuario
@@ -149,7 +139,6 @@ export const AuthProvider = ({ children }) => {
       setError(errorMessage); // Establece el mensaje de error para la UI
 
       setIsLoading(false);
-      // Asegura limpiar el estado local en caso de fallo de signup
       setToken(null); // Esto disparará el useEffect para limpiar localStorage y estado
       return false; // Indica fallo
     }
@@ -159,8 +148,6 @@ export const AuthProvider = ({ children }) => {
     console.log("AuthContext: Logging out..."); // Log para depuración
     // Limpiar el token es suficiente, el useEffect se encargará del resto
     setToken(null);
-    // Opcionalmente, puedes redirigir aquí o dejar que lo haga el componente que llama a logout
-    // navigate('/login'); // Si tuvieras acceso a navigate aquí
   };
 
   // Función para limpiar el estado de error manualmente desde los componentes
@@ -169,7 +156,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   // 4. Valor que proveerá el contexto a los componentes consumidores
-  // Asegúrate de incluir todas las funciones y estados que los componentes necesiten
   const value = {
     user,
     token,
