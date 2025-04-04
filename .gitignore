@@ -1,0 +1,14 @@
+# Ignorar archivos de variables de entorno
+.env
+*.env.*
+
+/fullstack-challenge-backend/.env
+/fullstack-challenge-frontend/.env
+
+
+node_modules/
+/fullstack-challenge-backend/node_modules/
+/fullstack-challenge-frontend/node_modules/
+/fullstack-challenge-frontend/build/
+npm-debug.log
+*.log
